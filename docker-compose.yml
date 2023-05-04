@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  tt2:
+    build: ./
+    command: ./tt2
+    ports:
+      - "8888:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_PASSWORD=qwerty123
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=qwerty123
+    ports:
+      - "5432:5432"
