@@ -5,17 +5,17 @@ services:
     build: ./
     command: ./tt2
     ports:
-      - "8888:8000"
+      - "8888:8080"
     depends_on:
       - db
     environment:
-      - DB_PASSWORD=qwerty123
+      - DB_PASSWORD=secret
   db:
     restart: always
     image: postgres:latest
     volumes:
       - ./.database/postgres/data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=qwerty123
+      - POSTGRES_PASSWORD=secret
     ports:
-      - "5432:5432"
+      - "6566:6565"
