@@ -10,6 +10,6 @@ RUN apt-get -y install postgresql-client
 RUN chmod +x wait-for-postgres.sh
 
 RUN go mod download
-RUN go build -o tt2 ./main.go
+RUN go build -o tt2 ./cmd/main.go
 
 CMD ["./tt2"]
